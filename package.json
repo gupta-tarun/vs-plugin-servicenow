@@ -1,0 +1,23 @@
+{
+  "name": "vs-plugin-servicenow",
+  "version": "1.0.0",
+  "description": "A plugin that allows you to do CRUD operation on your ServiceNow Scripts, via VSCode",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gupta-tarun/vs-plugin-servicenow.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gupta-tarun/vs-plugin-servicenow/issues"
+  },
+  "homepage": "https://github.com/gupta-tarun/vs-plugin-servicenow#readme",
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "request": "^2.88.0"
+  }
+}
