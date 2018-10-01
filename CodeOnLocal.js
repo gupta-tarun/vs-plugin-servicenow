@@ -1,10 +1,12 @@
 var buildQuery = function(input, fastQuery) {
     var query = ''
+    //TODO Add pagination support
+
     tokens = input.split('@')
     if (tokens.length === 1) {
         //we need to build the query in name and description
         query = 'nameLIKE' + input + '^ORdescriptionLIKE' + input;
-        return fastQuery ? query + '&sysparm_fields=sys_class_name,sys_id,sys_update_name,api_name,name,sys_name' : query;
+        input = fastQuery ? query + '&sysparm_fields=sys_class_name,sys_id,sys_update_name,api_name,name,sys_name' : query;
     } else {
         tempQuery = []
         for (var i=0; i<tokens.length; i++) {
@@ -19,7 +21,9 @@ var buildQuery = function(input, fastQuery) {
         }
         query = tempQuery.join('^OR')
     }
-    return fastQuery ? query + '&sysparm_fields=sys_class_name,sys_id,sys_update_name,api_name,name,sys_name' : query;
+    input = fastQuery ? query + '&sysparm_fields=sys_class_name,sys_id,sys_update_name,api_name,name,sys_name' : query;
+    input = input + '&sysparm_limit=200'
+    return input
 }
 
 var getDefaultOptionsForSearch = function() {
@@ -62,7 +66,7 @@ commands = {
         })
     },
 
-    searchAnddownload: function(input, callback) {
+    searchAndDownload: function(input, callback) {
         validateInput({operation: 'search'});
         var query = buildQuery(input)
         //set options for rest client
@@ -115,6 +119,6 @@ commands = {
 // commands.search('@name:ajax')
 // commands.search('ajax')
 // .search('@createdBy:ajax')
-commands.searchAnddownload('@name:ajax')
+//commands.searchAndDownload('@sys_updated_by:venkatreddy.b @sys_created_by:venkatreddy.b')
 
-
+module.exports = commands

@@ -9,14 +9,20 @@ var utilities = {
         }
         mkdirp.sync(dirname);
     },
+    
     saveFileOnDisk: function (filename, content) {
         if(filename.indexOf('.js')<0)
             filename = filename + '.js'
         fs.writeFileSync( filename, content)
     },
+    
     generateFileName: function (input) {
         return input.name
     },
+
+    getIdentifier: function (input) {
+        return input.sys_id
+    }
 }
 
 module.exports = utilities
