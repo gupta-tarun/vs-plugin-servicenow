@@ -20,3 +20,11 @@ If the api name space is given as test, it will make like this:
 - Type inference
 - Interfaces
 
+----
+Future Plan
+ 1. Support for auto detection of changes on server
+ 2. Support for Type Definations of common components
+ 3. Support for Testcases 
+    a. Edit/Review all Qunits related to the given script
+    b. Support of running testcases directly from IDE
+    
